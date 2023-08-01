@@ -33,16 +33,31 @@ base_2022 = {
     'Oblig_FIP_22' : {'file' : '7 Oblig','header' : 0},
     'OP_22': {'file' : '4 OP', 'header' : 0},
     'OP_FIP_22': {'file' : '8 OP', 'header' : 0},
-    'Ejecución_Presupuestal_Agregada_22': {'file' : 'EjecucionPresupuestalAgregada', 'header' : 3}
-}
-
-reservas_2022 = {
+    'Ejecución_Presupuestal_Agregada_22': {'file' : 'EjecucionPresupuestalAgregada', 'header' : 3},
     'RP_Reservas_22': {'file' : '2.1 RP', 'header': 0},
     'RP_FIP_Reservas_22': {'file' : '6.1 RP', 'header': 0},
     'Oblig_Reservas_22': {'file' : '3.1 Oblig', 'header' : 0},
     'Oblig_FIP_Reservas_22': {'file' : '7.1 Oblig', 'header': 0},
     'OP_Reservas_22': {'file' : '4.1 OP', 'header' : 0},
     'OP_FIP_Reservas_22': {'file' : '8.1 OP', 'header' : 0}
+}
+
+base_2021 = {
+    'CDP_21': {'file' : '1 CDP', 'header' : 0},
+    'CDP_FIP_21' : {'file' : '5 CDP', 'header' : 0},
+    'RP_21' : {'file' : '2 RP', 'header' : 0},
+    'RP_FIP_21' : {'file' : '6 RP', 'header' : 0},
+    'Oblig_21' : {'file' : '3 Oblig', 'header' : 0},
+    'Oblig_FIP_21' : {'file' : '7 Oblig','header' : 0},
+    'OP_21': {'file' : '4 OP', 'header' : 0},
+    'OP_FIP_21': {'file' : '8 OP', 'header' : 0},
+    'Ejecución_Presupuestal_Agregada_21': {'file' : 'EjecucionPresupuestalAgregada', 'header' : 3},
+    'RP_Reservas_21': {'file' : '2.1 RP', 'header': 0},
+    'RP_FIP_Reservas_21': {'file' : '6.1 RP', 'header': 0},
+    'Oblig_Reservas_21': {'file' : '3.1 Oblig', 'header' : 0},
+    'Oblig_FIP_Reservas_21': {'file' : '7.1 Oblig', 'header': 0},
+    'OP_Reservas_21': {'file' : '4.1 OP', 'header' : 0},
+    'OP_FIP_Reservas_21': {'file' : '8.1 OP', 'header' : 0}
 }
  
 database = {
@@ -76,56 +91,64 @@ database = {
     'Oblig_FIP_Reservas_22': None,
     'OP_Reservas_22': None,
     'OP_FIP_Reservas_22': None,
+    'CDP_21': None,
+    'CDP_FIP_21' : None,
+    'RP_21' : None,
+    'RP_FIP_21' : None,
+    'Oblig_21' : None,
+    'Oblig_FIP_21' :None,
+    'OP_21': None,
+    'OP_FIP_21': None,
+    'Ejecución_Presupuestal_Agregada_21': None,
+    'RP_Reservas_21': None,
+    'RP_FIP_Reservas_21': None,
+    'Oblig_Reservas_21': None,
+    'Oblig_FIP_Reservas_21': None,
+    'OP_Reservas_21': None,
+    'OP_FIP_Reservas_21': None,
 }
 
 # Se define una función para cargar los datos
 def get_data():
+    # Dirección del archivo
     script_dir = os.path.dirname(__file__)
-    ruta_nuevos = os.path.join(script_dir, '..', 'Archivos Base', 'Reportes SIIF')
-    ruta_carpeta_reciente = os.path.join(ruta_nuevos,sorted(os.listdir(ruta_nuevos))[-1])
-    print("Se están cargando los archivos de la carpeta,", ruta_carpeta_reciente)
-    archivos_excel_nuevos = [f for f in os.listdir(ruta_carpeta_reciente) if f.endswith(".xlsx")]
     
-    fecha_str = ruta_carpeta_reciente.split('\\')[-1]
+    # Carga de los reportes SIIF de la vigencia
+    ruta_vigencia = os.path.join(script_dir, '..', 'Archivos Base', 'Reportes SIIF Vigencia')
+    ruta_reciente_vigencia = os.path.join(ruta_vigencia,sorted(os.listdir(ruta_vigencia))[-1])
+    print("Se están cargando los archivos de la carpeta,", ruta_reciente_vigencia)
+    archivos_excel_nuevos = [f for f in os.listdir(ruta_reciente_vigencia) if f.endswith(".xlsx")]
+    
+    fecha_str = ruta_reciente_vigencia.split('\\')[-1]
 
-    ruta_rev = os.path.join(script_dir, '..', 'Archivos Base', 'Archivos Reservas')
-    archivos_excel_rev = [f for f in os.listdir(ruta_rev) if f.endswith(".xlsx")]
+    # Dirección del ultimo reporte de reservas
+    ruta_rev= os.path.join(script_dir, '..', 'Archivos Base', 'Reservas Vigencia')
+    ruta_reciente_reservas = os.path.join(ruta_rev,sorted(os.listdir(ruta_rev))[-1])
+    archivos_excel_rev = [f for f in os.listdir(ruta_reciente_reservas) if f.endswith(".xlsx")]
 
-    ruta_2022 = os.path.join(script_dir, '..', 'Archivos Base', 'Base 2022')
+    ruta_2022 = os.path.join(script_dir, '..', 'Archivos Base', 'Base Vigencia Anterior')
     archivos_excel_2022 = [f for f in os.listdir(ruta_2022) if f.endswith(".xlsx")]
     
-    ruta_rev_2022 = os.path.join(script_dir, '..', 'Archivos Base', 'Reservas 2022')
-    archivos_excel_rev_2022 = [f for f in os.listdir(ruta_rev_2022) if f.endswith(".xlsx")]
+    ruta_2021 = os.path.join(script_dir, '..', 'Archivos Base', 'Base Vig x Anteriores')
+    archivos_2021 = [f for f in os.listdir(ruta_2021) if f.endswith(".xlsx")]
     
-    data_nuevos = {i:{'file': os.path.join(ruta_carpeta_reciente, [n for n in archivos_excel_nuevos if base_nuevos[i]['file'] in n][-1]), 'header':base_nuevos[i]['header'] } for i in base_nuevos.keys()}              
-    data_rev = {i: {'file': os.path.join(ruta_rev, [n for n in archivos_excel_rev if base_reservas[i]['file'] in n][-1]),'header':base_reservas[i]['header']} for i in base_reservas.keys()}    
+    data_nuevos = {i:{'file': os.path.join(ruta_reciente_vigencia, [n for n in archivos_excel_nuevos if base_nuevos[i]['file'] in n][-1]), 'header':base_nuevos[i]['header'] } for i in base_nuevos.keys()}              
+    data_rev = {i: {'file': os.path.join(ruta_reciente_reservas, [n for n in archivos_excel_rev if base_reservas[i]['file'] in n][-1]),'header':base_reservas[i]['header']} for i in base_reservas.keys()}    
     data_2022 = {i: {'file': os.path.join(ruta_2022, [n for n in archivos_excel_2022 if base_2022[i]['file'] in n][-1]), 'header': base_2022[i]['header']} for i in base_2022.keys()}    
-    data_rev_2022 = {i: {'file': os.path.join(ruta_rev_2022, [n for n in archivos_excel_rev_2022 if reservas_2022[i]['file'] in n][-1]), 'header': reservas_2022[i]['header']} for i in reservas_2022.keys()}    
 
-    for i in data_nuevos.keys():
-        try:
-            database[i] = pd.read_excel(data_nuevos[i]['file'], header = data_nuevos[i]['header'])
-        except:
-            print("No se pudo cargar la base,",i)
-            raise
-    for i in data_rev.keys():
-        try:
-            database[i] = pd.read_excel(data_rev[i]['file'], header = data_rev[i]['header'])
-        except:
-            print("No se pudo cargar la base,",i)
-            raise
-    for i in data_2022.keys():
-        try:
-            database[i] = pd.read_excel(data_2022[i]['file'], header = data_2022[i]['header'])
-        except:
-            print("No se pudo cargar la base,",i)
-            raise
-    for i in data_rev_2022.keys():
-        try:
-            database[i] = pd.read_excel(data_rev_2022[i]['file'], header = data_rev_2022[i]['header'])
-        except:
-            print("No se pudo cargar la base,",i)
-            raise
+    data_2021 = {i: {'file': os.path.join(ruta_2021, [n for n in archivos_2021 if base_2021[i]['file'] in n][-1]), 'header': base_2021[i]['header']} for i in base_2021.keys()}    
+    
+    datos = [data_nuevos, data_rev, data_2022, data_2021]
+
+    for folder in datos:
+        for i in folder.keys():
+            try:
+                database[i] = pd.read_excel(folder[i]['file'], header = folder[i]['header'])
+            except:
+                print("Problema en la carpeta", str(folder))
+                print("No se pudo cargar la base,",i)
+                raise
+        
         
     return database, fecha_str
     

@@ -10,7 +10,6 @@ from export import export_data
 from Create_Report import datos_excel, ctr_reservas
 
 
-
 def get_date():
     while True:
         fecha_str = input("Ingrese una fecha (dd/mm/aaaa): ")

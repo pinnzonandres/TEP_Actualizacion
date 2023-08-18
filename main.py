@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 from Load_Data import get_data
-from Modulo_1 import clean_bases, clean_general, clean_general_DIP
+from Modulo_1 import clean_bases, clean_general
 from Modulo_2 import get_pre_second_base, get_pre_re_second_base
 from Modulo_3 import get_third_base
 from Modulo_4 import get_fourth_base
@@ -81,7 +81,7 @@ def run_code():
     
     ### Creamos los documentos de Excel
     try:
-        resultados['RG_Excel'] = clean_general_DIP(bases_de_datos['Ejecución_Presupuestal_Agregada'])
+        resultados['RG_Excel'] = clean_general(bases_de_datos['Ejecución_Presupuestal_Agregada'], DIP = True)
         resultados['RG_Excel'] = datos_excel(resultados['RG_Excel'])
     except:
         print('Problemas con la creación de los archivos excel')

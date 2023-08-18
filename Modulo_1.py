@@ -208,9 +208,8 @@ def clean_general(df: pd.DataFrame, DIP: bool = False) -> pd.DataFrame:
         RG['% EJECUCIÓN (C/A)'] = RG.apply(lambda x: round(int(x['PAGOS'])/int(x['APR. VIGENTE']),4), axis = 1)
     
         # Seleccionamos las columnas que necesitamos
-        RG = RG.rename
-        RG = RG[['RUBRO','Descripción Rubro','APR. INICIAL','APR. REDUCIDA','APR. VIGENTE','CDP','COMPROMISO',
-                 '% COMPROMETIDO (B/A)','APR. DISPONIBLE (A-B)','OBLIGACION','PAGOS','% EJECUCIÓN (C/A)']]
+        RG = RG[['RUBRO','Descripción Rubro','APR. INICIAL','APR. REDUCIDA','APR. VIGENTE','CDP','COMPROMISO','% COMPROMETIDO (B/A)',
+                 'APR. DISPONIBLE (A-B)','OBLIGACION','PAGOS','% EJECUCIÓN (C/A)']]
     
         # Renombramos las columnas que necesitamos
         RG = RG.rename(columns={'Descripción Rubro':'DESCRIPCION','APR. VIGENTE':'APR. VIGENTE (A)','COMPROMISO':'COMPROMISO (B)', 'PAGOS':'PAGOS (C)'})

@@ -1,3 +1,10 @@
+'''
+- Script Modulo_5.py
+- Script encargado de concatenar la información comparativa de todas las vigencias analizadas
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Cargamos los modulos necesarios
 import pandas as pd
 

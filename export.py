@@ -1,3 +1,10 @@
+'''
+- Script export.py
+- Script encargado de exportar todos los DataFrames modificados durante todo el proceso en su carpeta correspondiente
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Importamos las librerias necesarias
 import pandas as pd
 import os
@@ -64,6 +71,7 @@ def export_data(bases_de_datos: pd.DataFrame) -> None:
              'Base_Compromisos_Reservas', 
              'BASE_RP_OP', 'RG', 'Base_Rubros','Base_Comparativa','Base_Comparativa_Res']
     
+    # Definimos los nombres que tendrán cada uno de los archivos a exportar
     nombres = ['1_CDP', '2_RP', '3_Oblig', 
              '4_OP', '2.1_RP_Reservas', 
              '3.1_Oblig_Reservas', '4.1_OP_Reservas', 
@@ -73,10 +81,12 @@ def export_data(bases_de_datos: pd.DataFrame) -> None:
              '9_Base_Comparativa_Ejecución',
              '10_Base_Comparativa_Reservas']
 
+    # Definimos los archivos de cada una de las hojas del libro de excel que se va a exportar para la actualización del tablero de power bi
     bases_tablero = ['dates','RG','Base_Rubros','Base_Compromisos',
                      'Base_Compromisos_Reservas','BASE_RP_OP',
                      'Base_Comparativa','Base_Comparativa_Res']
     
+    # Definimos los nombres de las hojas
     nombres_tablero = ['Fecha_Tablero','1_Reporte_General','2_Balance Proyectos',
                        '3_Base Compromisos','3.1_Base_Compromisis_Reservas','4_Base_RP_OP',
                        '5_Base_Comparativa','6_Base Comparativa Reservas']

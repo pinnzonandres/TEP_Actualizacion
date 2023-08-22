@@ -1,3 +1,10 @@
+'''
+- Script Modulo_3.py
+- Script encargado de realizar la base relacionada de obligaciones y giros totales por cada compromiso
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Cargamos las librerias necesarias
 import pandas as pd
 

@@ -1,3 +1,10 @@
+'''
+- Script Modulo_2.py
+- Script encargado de realizar el reporte mensual del rendimiento financiero de cada programa de la subdirección
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Cargamos las librerias necesarias
 import pandas as pd
 

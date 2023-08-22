@@ -1,3 +1,10 @@
+'''
+- Script Modulo_1.py
+- Script encargado de realizar los cambios iniciales a todos los archivos descargados desde el reporte SIIF
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Se importan las liberias necesarias
 import pandas as pd
 
@@ -149,6 +156,7 @@ def clean_general(df: pd.DataFrame, DIP: bool = False) -> pd.DataFrame:
 
     Args:
         df: El Reporte de ejecución agregada
+        DIP: Booleano que indica si el reporte es solo de la DIP o es de la dirección completa
 
     Returns:
         El dataframe del reporte de ejecución agregada filtrado y corregido

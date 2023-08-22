@@ -1,3 +1,10 @@
+'''
+- Script Modulo_4.py
+- Script encargado de realizar un reporte que reporta los giros realizados a cada compromiso por cada mes de la vigencia.
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Cargamos las librerias necesarias
 import pandas as pd
 # Cargamos una función del script modulo_2 que añade la columna de mes

@@ -1,3 +1,10 @@
+'''
+- Script Load_Data.py
+- Script encargado de encontrar las carpetas con la información de actualización y cargarla en Python
+- Autor: Wilson Andrés Pinzón (wilson.pinzon@prosperidadsocial.gov.co)
+- Fecha_Actualización: 23/08/22
+'''
+
 # Importación de Librerias
 import os
 import pandas as pd
